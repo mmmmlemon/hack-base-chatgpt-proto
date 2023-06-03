@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    body {
+      background-color: #e6dfd2;
+    }
+
+    #main-menu {
+      /* Existing styles */
+      background-color: #b6a27c; /* Restore the background color */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start; /* Align items to the left */
+      padding: 5%; /* Add padding */
+    }
+
+    .menu-item {
+      /* Existing styles */
+      flex: 0 0 16.66%; /* Set each item to occupy 16.66% of the container width (6 items per line) */
+      box-sizing: border-box;
+      font-weight: bold;
+    }
+
+    .menu-item:hover {
+      background-color: #414135;
+    }
+
+    .block {
+      background-color: #f8f8f3;
+      padding: 5%;
+    }
+
+    .submenu-link {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    h3{
+      font-weight: bold !important;
+    }
+
+    .codeExample {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 4px;
+      line-height: 1.5;
+    }
+
+    .codeExample span.keyword {
+      color: #569cd6;
+      font-weight: bold;
+    }
+
+    .codeExample span.comment {
+      color: #6a9955;
+      font-style: italic;
+    }
+
+    .codeExample span.string {
+      color: #ce9178;
+    }
+
+    .codeExample span.number {
+      color: #b5cea8;
+    }
+
+    .codeExample span.operator {
+      color: #d4d4d4;
+    }
+
+  </style>
+  <title>База знаний</title>
+</head>
+<body>
+  <div id="container" class="max-w-5xl mx-auto px-4">
+    <header id="main-menu" class="bg-b6a27c text-white py-4 flex justify-between">
+      <!-- Menu content will be generated dynamically -->
+    </header>
+
+    <div id="content" class="mt-4">
+
+      <!-- Chrome -->
+      <div id="block-1" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">Chrome</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-1-1">> smooth-scroll</a></li>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-1-2">> Убрать выделение элемента в Android, Google Assistant</a></li>
+        </ul>
+
+        <h3 id="header-p-1-1" class="block-submenu-item mt-10">▼ smooth-scroll</h3>
+        <p id="p-1-1" class="mb-2">smooth-scroll в Chrome не работает так как надо. Поэтому это свойство лучше не использовать.</p>
+        <h3 id="header-p-1-2" class="block-submenu-item mt-10">▼ Убрать выделение элемента в Android, Google Assistant</h3>
+        <p id="p-1-2" class="mb-2">Если в мобильном Chrome при нажатии на элемент он выделяется и появляется Google Assistant, то нужно убрать выделение (CSS -webkit-tap-highlight-color: transparent;) и сделать pointer-events: none;</p>
+      </div>
+
+      <!-- Vite -->
+      <div id="block-2" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">Vite</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-2-1">> Команда для сборки</a></li>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-2-2">> Если сайт не запускается на хосте</a></li>
+        </ul>
+        <h3 id="header-p-2-1" class="block-submenu-item mt-10">▼ Команда для сборки</h3>
+        <p id="p-2-1" class="mb-2 codeExample"><span class="number">npm run build</span></p>
+        <h3 id="header-p-2-2" class="block-submenu-item mt-10">▼ Если сайт не запускается на хосте</h3>
+        <p id="p-2-2" class="mb-2">Если после сборки сайт не запускается на хосте и выводит ошибку MIME-типа, то нужно убрать первый «/» из ссылок на скрипты в index.html</p>
+      </div>
+
+      <!-- JS. Axios -->
+      <div id="block-3" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">JS. Axios</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-3-1">> Отмена запросов</a></li>
+        </ul>
+        <h3 id="header-p-3-1" class="block-submenu-item mt-10">▼ Отмена запросов</h3>
+        <p id="p-3-1" class="mb-2">Для того чтобы отменить отправленный запрос нужно использовать CancelToken. Для этого нужно создать CancelToken после чего использовать его в параметрах axios запроса. Данный способ является deprecated, но на конец 22-ого – начало 23-его года он всё ещё используется. В будущем CancelToken будет заменён на AbortController.</p>
+      </div>
+
+      <!-- Vue -->
+      <div id="block-4" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">Vue</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-4-1">> Скопировать атрибут в data без реактивности (костыль)</a></li>
+        </ul>
+        <h3 id="header-p-4-1" class="block-submenu-item mt-10">▼ Скопировать атрибут в data без реактивности (костыль)</h3>
+        <p id="p-4-1" class="mb-2 codeExample">
+          <span class="string">атрибут</span> = <span class="keyword">JSON</span>.<span class="keyword">parse</span>(<span class="keyword">JSON</span>.<span class="keyword">stringify</span>( данные ));</span>
+        </p>
+        <p>Иногда нужно скопировать данные из атрибута <b>data</b>, но если делать это через обычное <b>=</b>, то тогда сохраняется реактивность.</p>
+      </div>
+
+      <!-- TimweWeb -->
+      <div id="block-5" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">TimeWeb</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-5-1">> composer require</a></li>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-5-1">> composer update</a></li>
+        </ul>
+        <h3 id="header-p-5-1" class="block-submenu-item mt-10">▼ composer require</h3>
+        <p id="p-5-2" class="mb-2 codeExample">
+          php ../../composer2/composer.phar require
+        </p>
+        <h3 id="header-p-5-2" class="block-submenu-item mt-10">▼ composer update</h3>
+        <p id="p-5-2" class="mb-2 codeExample">
+          php -d memory_limit=-1 $(which composer) update
+        </p>
+      </div>
+
+      <!-- Telegram -->
+      <div id="block-6" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">Telegram</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-6-1">> Установить webhook</a></li>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-6-2">> Проверить webhook</a></li>
+        </ul>
+        <h3 id="header-p-6-1" class="block-submenu-item mt-10">▼ Установить webhook</h3>
+        <p id="p-6-1" class="mb-2 codeExample">
+          https://api.telegram.org/bot{TOKEN}/setWebhook?url={WEBHOOK URL}
+        </p>
+        <h3 id="header-p-6-2" class="block-submenu-item mt-10">▼ Проверить webhook</h3>
+        <p id="p-6-2" class="mb-2 codeExample">
+          https://api.telegram.org/bot{TOKEN}/getWebhookInfo
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+// Get the main menu element
+const mainMenu = document.getElementById('main-menu');
+
+// Get all the blocks on the page
+const blocks = document.querySelectorAll('[id^=block-]');
+
+// Create an array to store the menu items
+const menuItems = [];
+
+// Create the dynamic menu items based on the headers from the blocks
+blocks.forEach((block, index) => {
+  const header = block.querySelector('h2');
+  const menuItem = document.createElement('a'); // Change the element to an anchor
+  menuItem.classList.add('menu-item');
+  menuItem.textContent = header.textContent;
+  menuItem.href = `#${block.id}`; // Set the href to the corresponding block's ID
+  menuItems.push(menuItem); // Push the menu item to the array
+});
+
+// Sort the menu items alphabetically
+menuItems.sort((a, b) => {
+  return a.textContent.localeCompare(b.textContent);
+});
+
+// Append the sorted menu items to the main menu
+menuItems.forEach(menuItem => {
+  mainMenu.appendChild(menuItem);
+});
+
+// Scroll to the corresponding block when a menu item is clicked
+mainMenu.addEventListener('click', (event) => {
+  if (event.target.tagName === 'A') {
+    event.preventDefault(); // Prevent the default anchor behavior
+    const targetBlockId = event.target.getAttribute('href').substring(1); // Get the target block ID from the href attribute
+    const targetBlock = document.getElementById(targetBlockId);
+    targetBlock.scrollIntoView({ behavior: 'smooth' }); // Scroll to the target block
+  }
+});
+
+
+    function rearrangeBlocks() {
+      const container = document.getElementById('container');
+      const blocks = Array.from(container.getElementsByClassName('block'));
+
+      blocks.sort((a, b) => {
+        const headingA = a.getElementsByTagName('h2')[0].innerText.toUpperCase();
+        const headingB = b.getElementsByTagName('h2')[0].innerText.toUpperCase();
+        if (headingA < headingB) {
+          return -1;
+        } else if (headingA > headingB) {
+          return 1;
+        }
+        return 0;
+      });
+
+      blocks.forEach(block => container.appendChild(block));
+    }
+
+    window.addEventListener('DOMContentLoaded', rearrangeBlocks);
+
+  </script>
+</body>
+</html>
