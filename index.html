@@ -24,6 +24,11 @@
       flex: 0 0 16.66%; /* Set each item to occupy 16.66% of the container width (6 items per line) */
       box-sizing: border-box;
       font-weight: bold;
+      margin-bottom: 2%;
+      margin-left: 2px;
+      margin-right: 2px;
+      text-align: center;
+      background-color: rgba(100,100,100, 0.6);
     }
 
     .menu-item:hover {
@@ -115,6 +120,7 @@
         <p id="p-2-2" class="mb-2">Если после сборки сайт не запускается на хосте и выводит ошибку MIME-типа, то нужно убрать первый «/» из ссылок на скрипты в index.html</p>
       </div>
 
+    
       <!-- JS. Axios -->
       <div id="block-3" class="mb-4 block">
         <h2 class="text-xl font-bold mb-2">JS. Axios</h2>
@@ -143,15 +149,38 @@
         <h2 class="text-xl font-bold mb-2">TimeWeb</h2>
         <ul>
           <li class="italic cursor-pointer text-blue-900"><a href="#header-p-5-1">> composer require</a></li>
-          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-5-1">> composer update</a></li>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-5-2">> composer update</a></li>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-5-3">> Установка сайта на Laravel</a></li>
         </ul>
+
         <h3 id="header-p-5-1" class="block-submenu-item mt-10">▼ composer require</h3>
         <p id="p-5-2" class="mb-2 codeExample">
           php ../../composer2/composer.phar require
         </p>
+
         <h3 id="header-p-5-2" class="block-submenu-item mt-10">▼ composer update</h3>
         <p id="p-5-2" class="mb-2 codeExample">
           php -d memory_limit=-1 $(which composer) update
+        </p>
+
+        
+        <h3 id="header-p-5-3" class="block-submenu-item mt-10">▼ Установка сайта на Laravel</h3>
+        <p id="p-5-3" class="mb-2">
+          1. Сделать symlink root\public_html -> root\public<br>
+          2. Сделать symlink root\public\storage -> root\storage<br>
+          3. Сделать composer update<br>
+          4. Убедиться что в настройках сайта установлена версия PHP соответствующая той на которой делался сайт (или выше)<br><br>
+
+          Команда для symlink public_html <br>
+          ln -s ~/имя_директории/public ~/имя_директории/public_html<br><br>
+
+          Команда для symlink storage<br>
+          ln -s ~/имя_директории/storage ~/имя_директории/public/storage<br><br>
+
+          Команда для обновления composer (без лимита на память)<br>
+          php -d memory_limit=-1 `which composer` update<br><br>
+
+          В КОДЕ ВЕЗДЕ СЛЭШ ДОЛЖЕН БЫТЬ ТОЛЬКО ВОТ ТАКИМ "/" !!!!
         </p>
       </div>
 
@@ -171,6 +200,76 @@
           https://api.telegram.org/bot{TOKEN}/getWebhookInfo
         </p>
       </div>
+
+      <!-- GitHub -->
+      <div id="block-6" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">GitHub</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-7-1">> git clone на ssh через personal token</a></li>
+        </ul>
+        <h3 id="header-p-7-1" class="block-submenu-item mt-10">▼ git clone на ssh через personal token</h3>
+        <p id="p-7-1" class="mb-2">
+          Для git clone на VDS'ке нужно использовать Access Token (Classic), а не Fine-Grained. Fine-Grained почему-то не работает через https и выдаёт вот такую ошибку <b>remote: Write access to repository not granted то нужно использ</b>
+        </p>
+      </div>
+
+            
+      <!-- JS -->
+      <div id="block-3" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">JavaScript</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900">
+            <a href="#header-p-8-1">> разница между функциями и функциональными выражениями</a>
+          </li>
+          <li class="italic cursor-pointer text-blue-900">
+            <a href="#header-p-8-2">> значения по умолчанию в функциях</a>
+          </li>
+          <li class="italic cursor-pointer text-blue-900">
+            <a href="#header-p-8-2">> стрелочная функция и область видимости this</a>
+          </li>
+          <li class="italic cursor-pointer text-blue-900">
+            <a href="#header-p-8-2">> копирование и объединение массивов (оператор распространения)</a>
+          </li>
+        </ul>
+        <h3 id="header-p-8-1" class="block-submenu-item mt-10">▼ разница между функциями и функциональными выражениями</h3>
+        <p id="p-3-1" class="mb-2">Вот это функция</p>
+        <p class="codeExample">function name() { ... }</p>
+        <p id="p-3-1" class="mb-2">А это функциональное выражение</p>
+        <p class="codeExample">const name = function () { ... }</p>
+        <p>Функции записываются в память. Функциональные выражения – нет. Таким образом функцию можно вызывать из любого места в скрипте, ещё до её объявления. А функциональное выражение – нет.</p>
+        
+        <h3 id="header-p-8-2" class="block-submenu-item mt-10">▼ значения по умолчанию в функциях</h3>
+        <p id="p-7-1" class="mb-2">Значение по умолчанию записывается вот так</p>
+        <p class="codeExample">function name (param, <i>defaultParam = value)</i></p>
+
+        <h3 id="header-p-8-3" class="block-submenu-item mt-10">▼ стрелочные функции и область видимости this</h3>
+        <p id="p-7-1" class="mb-2">Стрелочные функции можно использовать для защиты области видимости this. Например когда this вызывается внутри метода объекта. Пример есть в учебнике <i>Алекс Бэнкс - React, стр. 31</i></p>
+
+        <h3 id="header-p-8-3" class="block-submenu-item mt-10">▼ копирование и объединение массивов (оператор распространения - ...)</h3>
+        <p id="p-7-1" class="mb-2">Для копирования и объединения массивов можно использовать оператор распространения ...</i></p>
+        <p class="codeExample">
+          <span class="comment">//объединение</span><br>
+          const merge = [...array1, ...array2]<br><br>
+          <span class="comment">//получение первого элемента через копирование</span><br>
+          const firstElement = [...array1].reverse()
+        </p>
+
+      </div>
+
+      <!-- CSS -->
+      <div id="block-6" class="mb-4 block">
+        <h2 class="text-xl font-bold mb-2">CSS</h2>
+        <ul>
+          <li class="italic cursor-pointer text-blue-900"><a href="#header-p-9-1">> margin у anchor'ов</a></li>
+        </ul>
+        <h3 id="header-p-9-1" class="block-submenu-item mt-10">▼ margin у anchor'ов</h3>
+        <p id="p-9-1" class="mb-2 codeExample">
+            .class { scroll-margin-top: 100px; }<br>
+            <span class="comment">//принимает только значение в px</span>
+        </p>
+      </div>
+  
+
 
     </div>
 
